@@ -12,7 +12,7 @@ namespace SpectrumXl
 {
     public class SpectrumXl
     {
-        static string host = "http://192.168.1.4:9000";
+        static string host = "http://localhost:9000";
 
 
         [ExcelFunction(IsVolatile=true, Description = "Today's Serial Number",
