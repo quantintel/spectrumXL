@@ -5,34 +5,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Org.Quantintel.Spectrum;
+using Org.Quantintel.Spectrum.Api;
+using Org.Quantintel.Spectrum.Model;
 
 namespace SpectrumXl
 {
     public class SpectrumXl
     {
-        static string host = "192.168.1.4:9000";
+        static string host = "http://localhost:9000";
 
 
-        [ExcelFunction(Description = "Today's Serial Number",
+        [ExcelFunction(IsVolatile=true, Description = "Today's Serial Number",
             Category = "Spectrum Financial - Date")]
-        public static object SFTODAY()
+        public static object SFTODAY(object o)
         {
             try
             {
-                ApiInvoker client = new ApiInvoker();
-
-                String response = client.invokeAPI(host,
-                    "/date/today/serialNumber",
-                    "GET",
-                    null, null, null, null);
-                // TODO: marshal/unmarshal fetch value
-                return Convert.ToDouble(response);
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleLongValue response = dtApi.today();
+                return (long)response.value;
             }
-            catch (ApiException e)
+            catch (Exception e)
             {
                 return ExcelError.ExcelErrorValue;
             }
-            
+                       
         }
 
         [ExcelFunction(Description = "Today's date in simple format: mmddyyy",
