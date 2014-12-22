@@ -12,7 +12,7 @@ namespace SpectrumXl
 {
     public class SpectrumXl
     {
-        static string host = "http://localhost:9000";
+        static string host = "http://192.168.1.4:9000";
 
 
         [ExcelFunction(IsVolatile=true, Description = "Today's Serial Number",
@@ -33,20 +33,16 @@ namespace SpectrumXl
                        
         }
 
-        [ExcelFunction(Description = "Today's date in simple format: mmddyyy",
+        [ExcelFunction(IsVolatile = true, Description = "Today's date in simple format: mmddyyy",
             Category = "Spectrum Financial - Date")]
         public static object SFTODAYSF()
         {
             try
             {
-                ApiInvoker client = new ApiInvoker();
-
-                String response = client.invokeAPI(host,
-                    "/date/today/mmddyyyy",
-                    "GET",
-                    null, null, null, null);
-                // TODO: marshal/unmarshal fetch value
-                return response;
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.todaySimpleFmt();
+                return response.value;
             }
             catch (ApiException e)
             {
