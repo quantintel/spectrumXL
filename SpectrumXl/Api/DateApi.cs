@@ -184,17 +184,25 @@ namespace Org.Quantintel.Spectrum.Api
         /// <summary>
         /// returns whether the date provided is within a leap year. 
         /// </summary>
+        /// <param name="mm">mm - month</param>
+        /// <param name="dd">dd - day of month</param>
+        /// <param name="yy">yy - yyyy year</param>
         /// <returns></returns>
-        public SingleStringValue dtstrIsLeapYear()
+        public SingleStringValue dtstrIsLeapYear(int? mm, int? dd, int? yy)
         {
             // create path and map variables
-            var path = "/date/{mm}/{dd}/{yyyy}/isLeapYear".Replace("{format}", "json");
+            var path = "/date/{mm}/{dd}/{yyyy}/isLeapYear".Replace("{format}", "json").Replace("{" + "mm" + "}", apiInvoker.escapeString(mm.ToString())).Replace("{" + "dd" + "}", apiInvoker.escapeString(dd.ToString())).Replace("{" + "yy" + "}", apiInvoker.escapeString(yy.ToString()));
 
             // query params
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, object>();
 
+            // verify required params are set
+            if (mm == null || dd == null || yy == null)
+            {
+                throw new ApiException(400, "missing required params");
+            }
             try
             {
                 if (typeof(SingleStringValue) == typeof(byte[]))
@@ -328,17 +336,25 @@ namespace Org.Quantintel.Spectrum.Api
         /// <summary>
         /// month for the date provided 
         /// </summary>
+        /// <param name="mm">mm - month</param>
+        /// <param name="dd">dd - day of month</param>
+        /// <param name="yy">yy - yyyy year</param>
         /// <returns></returns>
-        public SingleStringValue dtstrMonth()
+        public SingleStringValue dtstrMonth(int? mm, int? dd, int? yy)
         {
             // create path and map variables
-            var path = "/date/{mm}/{dd}/{yyyy}/month".Replace("{format}", "json");
+            var path = "/date/{mm}/{dd}/{yyyy}/month".Replace("{format}", "json").Replace("{" + "mm" + "}", apiInvoker.escapeString(mm.ToString())).Replace("{" + "dd" + "}", apiInvoker.escapeString(dd.ToString())).Replace("{" + "yy" + "}", apiInvoker.escapeString(yy.ToString()));
 
             // query params
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, object>();
 
+            // verify required params are set
+            if (mm == null || dd == null || yy == null)
+            {
+                throw new ApiException(400, "missing required params");
+            }
             try
             {
                 if (typeof(SingleStringValue) == typeof(byte[]))
@@ -374,17 +390,25 @@ namespace Org.Quantintel.Spectrum.Api
         /// <summary>
         /// day of the month for the date provided 
         /// </summary>
+        /// <param name="mm">mm - month</param>
+        /// <param name="dd">dd - day of month</param>
+        /// <param name="yy">yy - yyyy year</param>
         /// <returns></returns>
-        public SingleStringValue dtstrDayOfMonth()
+        public SingleStringValue dtstrDayOfMonth(int? mm, int? dd, int? yy)
         {
             // create path and map variables
-            var path = "/date/{mm}/{dd}/{yyyy}/dayOfMonth".Replace("{format}", "json");
+            var path = "/date/{mm}/{dd}/{yyyy}/dayOfMonth".Replace("{format}", "json").Replace("{" + "mm" + "}", apiInvoker.escapeString(mm.ToString())).Replace("{" + "dd" + "}", apiInvoker.escapeString(dd.ToString())).Replace("{" + "yy" + "}", apiInvoker.escapeString(yy.ToString()));
 
             // query params
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, object>();
 
+            // verify required params are set
+            if (mm == null || dd == null || yy == null)
+            {
+                throw new ApiException(400, "missing required params");
+            }
             try
             {
                 if (typeof(SingleStringValue) == typeof(byte[]))
@@ -564,17 +588,25 @@ namespace Org.Quantintel.Spectrum.Api
         /// <summary>
         /// day of year for the date provided 
         /// </summary>
+        /// <param name="mm">mm - month</param>
+        /// <param name="dd">dd - day of month</param>
+        /// <param name="yy">yy - yyyy year</param>
         /// <returns></returns>
-        public SingleStringValue dtstrDayOfYear()
+        public SingleStringValue dtstrDayOfYear(int? mm, int? dd, int? yy)
         {
             // create path and map variables
-            var path = "/date/{mm}/{dd}/{yyyy}/dayOfYear".Replace("{format}", "json");
+            var path = "/date/{mm}/{dd}/{yyyy}/dayOfYear".Replace("{format}", "json").Replace("{" + "mm" + "}", apiInvoker.escapeString(mm.ToString())).Replace("{" + "dd" + "}", apiInvoker.escapeString(dd.ToString())).Replace("{" + "yy" + "}", apiInvoker.escapeString(yy.ToString()));
 
             // query params
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, object>();
 
+            // verify required params are set
+            if (mm == null || dd == null || yy == null)
+            {
+                throw new ApiException(400, "missing required params");
+            }
             try
             {
                 if (typeof(SingleStringValue) == typeof(byte[]))
@@ -656,17 +688,25 @@ namespace Org.Quantintel.Spectrum.Api
         /// <summary>
         /// the day of the week for the corresponding dd, mm, yyyy indicated 
         /// </summary>
+        /// <param name="mm">mm - month</param>
+        /// <param name="dd">dd - day of month</param>
+        /// <param name="yy">yy - yyyy year</param>
         /// <returns></returns>
-        public SingleStringValue dtstrWeekday()
+        public SingleStringValue dtstrWeekday(int? mm, int? dd, int? yy)
         {
             // create path and map variables
-            var path = "/date/{mm}/{dd}/{yyyy}/weekday".Replace("{format}", "json");
+            var path = "/date/{mm}/{dd}/{yyyy}/weekday".Replace("{format}", "json").Replace("{" + "mm" + "}", apiInvoker.escapeString(mm.ToString())).Replace("{" + "dd" + "}", apiInvoker.escapeString(dd.ToString())).Replace("{" + "yy" + "}", apiInvoker.escapeString(yy.ToString()));
 
             // query params
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, object>();
 
+            // verify required params are set
+            if (mm == null || dd == null || yy == null)
+            {
+                throw new ApiException(400, "missing required params");
+            }
             try
             {
                 if (typeof(SingleStringValue) == typeof(byte[]))
@@ -702,17 +742,25 @@ namespace Org.Quantintel.Spectrum.Api
         /// <summary>
         /// date for the mm dd and yy indicated. 
         /// </summary>
+        /// <param name="mm">mm - month</param>
+        /// <param name="dd">dd - day of month</param>
+        /// <param name="yy">yy - yyyy year</param>
         /// <returns></returns>
-        public SingleStringValue dtstrYear()
+        public SingleStringValue dtstrYear(int? mm, int? dd, int? yy)
         {
             // create path and map variables
-            var path = "/date/{mm}/{dd}/{yyyy}/year".Replace("{format}", "json");
+            var path = "/date/{mm}/{dd}/{yyyy}/year".Replace("{format}", "json").Replace("{" + "mm" + "}", apiInvoker.escapeString(mm.ToString())).Replace("{" + "dd" + "}", apiInvoker.escapeString(dd.ToString())).Replace("{" + "yy" + "}", apiInvoker.escapeString(yy.ToString()));
 
             // query params
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, object>();
 
+            // verify required params are set
+            if (mm == null || dd == null || yy == null)
+            {
+                throw new ApiException(400, "missing required params");
+            }
             try
             {
                 if (typeof(SingleStringValue) == typeof(byte[]))
