@@ -1,0 +1,16 @@
+﻿<DnaLibrary RuntimeVersion="v4.0" Language="C#">
+  <ExternalLibrary Path="SpectrumXl.dll" />
+  <CustomUI>
+    <customUI xmlns='http://schemas.microsoft.com/office/2009/07/customui' >
+      <ribbon>
+        <tabs>
+          <tab id='QUANTINTEL' label='QUANTINTEL'>
+            <group id='SampleGroup' label='My Sample Group'>
+              <button id='Button1' label='My Second Button' size='normal' onAction='RunTagMacro' tag='ReformatSelection='/>
+            </group >
+          </tab>
+        </tabs>
+      </ribbon>
+    </customUI>
+  </CustomUI>
+</DnaLibrary>
