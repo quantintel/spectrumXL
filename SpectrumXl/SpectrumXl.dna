@@ -5,8 +5,8 @@
       <ribbon>
         <tabs>
           <tab id='QUANTINTEL' label='QUANTINTEL'>
-            <group id='SampleGroup' label='My Sample Group'>
-              <button id='Button1' label='My Second Button' size='normal' onAction='RunTagMacro' tag='ReformatSelection='/>
+            <group id='Configuration' label='Configuration'>
+              <button id='Service' label='Service' size='normal' onAction='ServiceConfig' tag='ReformatSelection='/>
             </group >
           </tab>
         </tabs>

@@ -34,18 +34,23 @@ using System.Windows.Forms;
 
 namespace SpectrumXl
 {
+    
+
     [ComVisible(true)]
     public class QuantIntelRibbon : ExcelRibbon
     {
-        public void RefreshCmd(IRibbonControl control)
+
+        public static Form configForm = new ConfigurationDialog();
+
+        public void ServiceConfig(IRibbonControl control)
         {
-            MessageBox.Show("Refresh Done!");
+            configForm.Show();
         }
     }
 
     public class SpectrumXl
     {
-        static string host = "http://192.168.1.4:9000";
+        public static string host = "http://localhost:9000";
 
         /// <summary>
         /// Returns the serial number of the current date.
