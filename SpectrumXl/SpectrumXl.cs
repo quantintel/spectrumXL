@@ -60,9 +60,9 @@ namespace SpectrumXl
         [ExcelFunction(
             Name="SP.DATE.TODAY", 
             Description = "Today's Serial Number",
-            Category = "Spectrum Financial - Ser. # for Today",
+            Category = "Spectrum Financial - DATE",
             IsVolatile=true)]
-        public static object today(object o)
+        public static object today()
         {
             try
             {
@@ -85,7 +85,7 @@ namespace SpectrumXl
         [ExcelFunction(
             Name="SP.DATE.TODAYSF",
             Description = "Today's date in simple format: mmddyyyy",
-            Category = "Spectrum Financial - mmddyyyy for today",
+            Category = "Spectrum Financial - DATE",
             IsVolatile = true)]
         public static object todaySimpleFmt()
         {
@@ -102,38 +102,12 @@ namespace SpectrumXl
             }
         }
 
-        /// <summary>
-        /// Given a serial number returns the mmddyyyy formatted version.
-        /// </summary>
-        /// <param name="num">serial number of required date.</param>
-        /// <returns>mmddyyyy version of the date indicated by the serial number provided.</returns>
-        [ExcelFunction(
-            Name="SP.DATE.SIMPLEFMT",
-            Description = "Given a date's serial number return: mmddyyyy",
-            Category = "Spectrum Financial - mmddyyyy for Ser. #")]
-        public static object simpleFmt(long num)
-        {
-            try
-            {
-                DateApi dtApi = new DateApi();
-                dtApi.setBasePath(host);
-                SingleStringValue response = dtApi.simpleFmt(num);
-                return response.value;
-            }
-            catch (ApiException e)
-            {
-                return ExcelError.ExcelErrorValue;
-            }
-        }
 
-        /// <summary>
-        /// Returns the current day of the week.
-        /// </summary>
-        /// <returns>Todays day of the week.</returns>
         [ExcelFunction(
             Name="SP.DATE.WEEKDAY",
-            Description = "Today's day of the week.",
-            Category = "Spectrum Financial - Weekday for today")]
+            Description = "Today's day of the week: MONDAY, TUESDAY, ...",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
         public static object weekday()
         {
             try
@@ -149,47 +123,281 @@ namespace SpectrumXl
             }
         }
 
-        /// <summary>
-        /// Day of the week for the given serial number.
-        /// </summary>
-        /// <param name="number">serial number</param>
-        /// <returns>Day of the week.</returns>
         [ExcelFunction(
-            Name="SP.DATE.WEEKDAYDT",
-            Description="",
-            Category = "Spectrum Financial - Weekday for Ser. #")]
-        public static object dtWeekday(long number){
+            Name = "SP.DATE.YEAR",
+            Description = "The current year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object year()
+        {
             try
             {
                 DateApi dtApi = new DateApi();
                 dtApi.setBasePath(host);
-                SingleStringValue response = dtApi.dtWeekday(number);
+                SingleStringValue response = dtApi.year();
                 return response.value;
             }
             catch (ApiException e)
             {
-                
                 return ExcelError.ExcelErrorValue;
             }
         }
 
          [ExcelFunction(
-            Name = "SP.DATE.WEEKDAYSTR",
+            Name = "SP.DATE.MONTH",
+            Description = "The current month.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object month()
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.month();
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.DAYOFMONTH",
+            Description = "The current month.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object dayOfMonth()
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dayOfMonth();
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+       [ExcelFunction(
+            Name = "SP.DATE.DAYOFYEAR",
+            Description = "The current day of the year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object dayOfYear()
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dayOfYear();
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+        [ExcelFunction(
+            Name = "SP.DATE.DAYINLY",
+            Description = "Is today in a leap year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object isLeapYear()
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.isLeapYear();
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+
+        /// <summary>
+        /// Given a serial number returns the mmddyyyy formatted version.
+        /// </summary>
+        /// <param name="num">serial number of required date.</param>
+        /// <returns>mmddyyyy version of the date indicated by the serial number provided.</returns>
+        [ExcelFunction(
+            Name="SP.DATE.SN.SIMPLEFMT",
+            Description = "Given a date's serial number return: mmddyyyy",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object simpleFmt(
+            [ExcelArgument(Description = "date serial number")] long num)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.simpleFmt(num);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+
+       [ExcelFunction(
+            Name = "SP.DATE.SN.WEEKDAY",
+            Description = "Given a date's serial number return weekday.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtWeekday(
+           [ExcelArgument(Description = "date serial number")] long num)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtWeekday(num);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+       [ExcelFunction(
+            Name = "SP.DATE.SN.YEAR",
+            Description = "Given a date's serial number return year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtYear(
+           [ExcelArgument(Description = "date serial number")] long num)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtYear(num);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.SN.MONTH",
+            Description = "Given a date's serial number return month",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtMonth(
+            [ExcelArgument(Description = "date serial number")] long num)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtMonth(num);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+       [ExcelFunction(
+            Name = "SP.DATE.SN.DAYOFMONTH",
+            Description = "Given a date's serial number return day of month",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtDayOfMonth(
+                [ExcelArgument(Description = "date serial number")] long num)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtDayOfMonth(num);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.SN.DAYOFYR",
+            Description = "Given a date's serial number return year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtDayOfYear(
+            [ExcelArgument(Description = "date serial number")] long num)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtDayOfYear(num);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.SN.ISLY",
+            Description = "Given a date's serial number return if leap year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtIsLeapYear(
+            [ExcelArgument(Description = "date serial number")] long num)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtIsLeapYear(num);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+
+
+
+
+         [ExcelFunction(
+            Name = "SP.DATE.MDY.WEEKDAY",
             Description = "Returns the day of the week: MONDAY, TUESDAY, etc.",
-            Category = "Spectrum Financial - Weekday for mm/dd/yyyy provided")]
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
         public static object dtstrWeekday(
              [ExcelArgument(Description = "Month 1-12")]
              int mm,
              [ExcelArgument(Description = "Day of Month 1-31")]
              int dd,
              [ExcelArgument(Description = "Year example: 2014")]
-             int yy)
+             int yyyy)
         {
             try
             {
                 DateApi dtApi = new DateApi();
                 dtApi.setBasePath(host);
-                SingleStringValue response = dtApi.dtstrWeekday(mm, dd, yy);
+                SingleStringValue response = dtApi.dtstrWeekday(mm, dd, yyyy);
                 return response.value;
             }
             catch (ApiException e)
@@ -198,6 +406,135 @@ namespace SpectrumXl
             }
         }
 
+        [ExcelFunction(
+            Name = "SP.DATE.MDY.YEAR",
+            Description = "Returns the year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtstrYear(
+             [ExcelArgument(Description = "Month 1-12")]
+             int mm,
+             [ExcelArgument(Description = "Day of Month 1-31")]
+             int dd,
+             [ExcelArgument(Description = "Year example: 2014")]
+             int yyyy)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtstrYear(mm, dd, yyyy);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.MDY.MONTH",
+            Description = "Returns the month.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtstrMonth(
+             [ExcelArgument(Description = "Month 1-12")]
+             int mm,
+             [ExcelArgument(Description = "Day of Month 1-31")]
+             int dd,
+             [ExcelArgument(Description = "Year example: 2014")]
+             int yyyy)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtstrMonth(mm, dd, yyyy);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.MDY.DAYOFMONTH",
+            Description = "Returns the day of the month",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtstrDayOfMonth(
+             [ExcelArgument(Description = "Month 1-12")]
+             int mm,
+             [ExcelArgument(Description = "Day of Month 1-31")]
+             int dd,
+             [ExcelArgument(Description = "Year example: 2014")]
+             int yyyy)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtstrDayOfMonth(mm, dd, yyyy);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.MDY.DAYOFYR",
+            Description = "Returns the day of the year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtstrDayOfYear(
+             [ExcelArgument(Description = "Month 1-12")]
+             int mm,
+             [ExcelArgument(Description = "Day of Month 1-31")]
+             int dd,
+             [ExcelArgument(Description = "Year example: 2014")]
+             int yyyy)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtstrDayOfYear(mm, dd, yyyy);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.MDY.ISLEAPYR",
+            Description = "Returns if the date provided is in a leap year.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile=true)]
+        public static object dtstrIsLeapYear(
+             [ExcelArgument(Description = "Month 1-12")]
+             int mm,
+             [ExcelArgument(Description = "Day of Month 1-31")]
+             int dd,
+             [ExcelArgument(Description = "Year example: 2014")]
+             int yyyy)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleStringValue response = dtApi.dtstrIsLeapYear(mm, dd, yyyy);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
 
     }
 }
