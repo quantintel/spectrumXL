@@ -23,7 +23,9 @@ namespace SpectrumXl
         private void submitBtn_Click(object sender, EventArgs e)
         {
             host = this.textBox1.Text;
-            SpectrumXl.host = host;
+            Date.host = host;
+            DayCount.host = host;
+
             QuantIntelRibbon.configForm.Hide();
         }
     }
