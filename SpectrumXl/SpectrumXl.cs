@@ -78,6 +78,30 @@ namespace SpectrumXl
                        
         }
 
+        [ExcelFunction(
+            Name = "SP.DATE.SN",
+            Description = "Serial number of the date indicated.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object serialNumber(
+             [ExcelArgument(Description = "Month 1-12")] int mm,
+             [ExcelArgument(Description = "Day 1-31")] int dd,
+             [ExcelArgument(Description = "Year")] int year)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleLongValue response = dtApi.serialNumber(mm, dd, year);
+                return (long)response.value;
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+                //return ExcelError.ExcelErrorValue;
+            }
+        }
+
         /// <summary>
         /// Returns the mmddyyyy formated version of the current date.
         /// </summary>
@@ -535,6 +559,90 @@ namespace SpectrumXl
                 return ExcelError.ExcelErrorValue;
             }
         }
+
+        [ExcelFunction(
+            Name = "SP.DATE.INCR",
+            Description = "Increment the current days serial number by one.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object incr()
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleLongValue response = dtApi.incr();
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.DECR",
+            Description = "Decrements the current days serial number by one.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object decr()
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleLongValue response = dtApi.decr();
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.INCRBY",
+            Description = "Increments the current days serial number by the number of days indicated.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object incr(
+             [ExcelArgument(Description = "Number of days to increment")] int serialNumber)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleLongValue response = dtApi.incrBy(serialNumber);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+        [ExcelFunction(
+            Name = "SP.DATE.DECRBY",
+            Description = "Decrements the current days serial number by the number of days indicatred.",
+            Category = "Spectrum Financial - DATE",
+            IsVolatile = true)]
+        public static object decr(
+             [ExcelArgument(Description = "Number of days to decrement")] int serialNumber)
+        {
+            try
+            {
+                DateApi dtApi = new DateApi();
+                dtApi.setBasePath(host);
+                SingleLongValue response = dtApi.decrBy(serialNumber);
+                return response.value;
+            }
+            catch (ApiException e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+        }
+
+
 
     }
 }
