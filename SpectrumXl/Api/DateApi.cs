@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using Org.Quantintel.Spectrum;
 using Org.Quantintel.Spectrum.Model;
+
+using Org.Quantintel.Spectrum;
+using Org.Quantintel.Spectrum.Api;
+using Org.Quantintel.Spectrum.Model;
+
 namespace Org.Quantintel.Spectrum.Api
+
 {
     public class DateApi
     {
