@@ -37,7 +37,7 @@ namespace Org.Quantintel.Spectrum.Api
         /// <param name="fromdate">from date</param>
         /// <param name="todate">to date</param>
         /// <returns></returns>
-        public SingleDoubleValue actual360fyf(long? fromdate, long? todate)
+        public SingleDoubleValue actual365fyf(long? fromdate, long? todate)
         {
             // create path and map variables
             var path = "/daycount/{fromdate}/{todate}}/actual365fyf".Replace("{format}", "json").Replace("{" + "fromdate" + "}", apiInvoker.escapeString(fromdate.ToString())).Replace("{" + "todate" + "}", apiInvoker.escapeString(todate.ToString()));
@@ -143,7 +143,7 @@ namespace Org.Quantintel.Spectrum.Api
         /// <param name="fromdate">from date</param>
         /// <param name="todate">to date</param>
         /// <returns></returns>
-        public SingleLongValue actual360NL(long? fromdate, long? todate)
+        public SingleLongValue actual365nl(long? fromdate, long? todate)
         {
             // create path and map variables
             var path = "/daycount/{fromdate}/{todate}/actual365nl".Replace("{format}", "json").Replace("{" + "fromdate" + "}", apiInvoker.escapeString(fromdate.ToString())).Replace("{" + "todate" + "}", apiInvoker.escapeString(todate.ToString()));
@@ -196,7 +196,7 @@ namespace Org.Quantintel.Spectrum.Api
         /// <param name="fromdate">from date</param>
         /// <param name="todate">to date</param>
         /// <returns></returns>
-        public SingleDoubleValue actual360nlyf(long? fromdate, long? todate)
+        public SingleDoubleValue actual365nlyf(long? fromdate, long? todate)
         {
             // create path and map variables
             var path = "/daycount/{fromdate}/{todate}/actual365nlyf".Replace("{format}", "json").Replace("{" + "fromdate" + "}", apiInvoker.escapeString(fromdate.ToString())).Replace("{" + "todate" + "}", apiInvoker.escapeString(todate.ToString()));
@@ -249,7 +249,7 @@ namespace Org.Quantintel.Spectrum.Api
         /// <param name="fromdate">from date</param>
         /// <param name="todate">to date</param>
         /// <returns></returns>
-        public SingleLongValue actual360L(long? fromdate, long? todate)
+        public SingleLongValue actual365l(long? fromdate, long? todate)
         {
             // create path and map variables
             var path = "/daycount/{fromdate}/{todate}/actual365l".Replace("{format}", "json").Replace("{" + "fromdate" + "}", apiInvoker.escapeString(fromdate.ToString())).Replace("{" + "todate" + "}", apiInvoker.escapeString(todate.ToString()));
@@ -302,7 +302,7 @@ namespace Org.Quantintel.Spectrum.Api
         /// <param name="fromdate">from date</param>
         /// <param name="todate">to date</param>
         /// <returns></returns>
-        public SingleDoubleValue actual360lyf(long? fromdate, long? todate)
+        public SingleDoubleValue actual365lyf(long? fromdate, long? todate)
         {
             // create path and map variables
             var path = "/daycount/{fromdate}/{todate}/actual365lyf".Replace("{format}", "json").Replace("{" + "fromdate" + "}", apiInvoker.escapeString(fromdate.ToString())).Replace("{" + "todate" + "}", apiInvoker.escapeString(todate.ToString()));
@@ -355,7 +355,7 @@ namespace Org.Quantintel.Spectrum.Api
         /// <param name="fromdate">from date</param>
         /// <param name="todate">to date</param>
         /// <returns></returns>
-        public SingleLongValue actual360F(long? fromdate, long? todate)
+        public SingleLongValue actual365f(long? fromdate, long? todate)
         {
             // create path and map variables
             var path = "/daycount/{fromdate}/{todate}}/actual365f".Replace("{format}", "json").Replace("{" + "fromdate" + "}", apiInvoker.escapeString(fromdate.ToString())).Replace("{" + "todate" + "}", apiInvoker.escapeString(todate.ToString()));
