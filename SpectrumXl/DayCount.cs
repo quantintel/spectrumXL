@@ -63,5 +63,175 @@ namespace SpectrumXl
             }
 
         }
+
+        [ExcelFunction(
+            Name = "SP.DC.ACT360.YF",
+            Description = "day count fraction using Act/360 method",
+            Category = "Spectrum Financial - Day Count",
+            IsVolatile = true)]
+        public static object dayCount360(
+             [ExcelArgument(Description = "serial number of start date")] long fromdate,
+             [ExcelArgument(Description = "serial number of end date")] long todate)
+        {
+            try
+            {
+                DaycountApi api = new DaycountApi();
+                api.setBasePath(host);
+                SingleDoubleValue response = api.actual360yf(fromdate, todate);
+                return (long)response.value;
+            }
+            catch (Exception e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+
+        }
+
+
+
+        [ExcelFunction(
+            Name = "SP.DC.ACT365F",
+            Description = "day count using Act/365F method",
+            Category = "Spectrum Financial - Day Count",
+            IsVolatile = true)]
+        public static object dayCount360F(
+             [ExcelArgument(Description = "serial number of start date")] long fromdate,
+             [ExcelArgument(Description = "serial number of end date")] long todate)
+        {
+            try
+            {
+                DaycountApi api = new DaycountApi();
+                api.setBasePath(host);
+                SingleLongValue response = api.actual365f(fromdate, todate);
+                return (long)response.value;
+            }
+            catch (Exception e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+
+        }
+
+
+        [ExcelFunction(
+            Name = "SP.DC.ACT365F.YF",
+            Description = "day count fraction using Act/365F method",
+            Category = "Spectrum Financial - Day Count",
+            IsVolatile = true)]
+        public static object dayCount360F(
+             [ExcelArgument(Description = "serial number of start date")] long fromdate,
+             [ExcelArgument(Description = "serial number of end date")] long todate)
+        {
+            try
+            {
+                DaycountApi api = new DaycountApi();
+                api.setBasePath(host);
+                SingleDoubleValue response = api.actual365fyf(fromdate, todate);
+                return (long)response.value;
+            }
+            catch (Exception e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+
+        }
+
+        [ExcelFunction(
+                 Name = "SP.DC.ACT365NL",
+                 Description = "day count using Act/365NL method",
+                 Category = "Spectrum Financial - Day Count",
+                 IsVolatile = true)]
+        public static object dayCount360NL(
+             [ExcelArgument(Description = "serial number of start date")] long fromdate,
+             [ExcelArgument(Description = "serial number of end date")] long todate)
+        {
+            try
+            {
+                DaycountApi api = new DaycountApi();
+                api.setBasePath(host);
+                SingleLongValue response = api.actual365nl(fromdate, todate);
+                return (long)response.value;
+            }
+            catch (Exception e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+
+        }
+
+
+
+        [ExcelFunction(
+         Name = "SP.DC.ACT365NL.YF",
+         Description = "day count fraction using Act/365NL method",
+         Category = "Spectrum Financial - Day Count",
+         IsVolatile = true)]
+        public static object dayCount360NL(
+             [ExcelArgument(Description = "serial number of start date")] long fromdate,
+             [ExcelArgument(Description = "serial number of end date")] long todate)
+        {
+            try
+            {
+                DaycountApi api = new DaycountApi();
+                api.setBasePath(host);
+                SingleDoubleValue response = api.actual365nlyf(fromdate, todate);
+                return (long)response.value;
+            }
+            catch (Exception e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+
+        }
+
+
+        [ExcelFunction(
+         Name = "SP.DC.ACT365L",
+         Description = "day count using Act/365L method",
+         Category = "Spectrum Financial - Day Count",
+         IsVolatile = true)]
+        public static object dayCount360L(
+             [ExcelArgument(Description = "serial number of start date")] long fromdate,
+             [ExcelArgument(Description = "serial number of end date")] long todate)
+        {
+            try
+            {
+                DaycountApi api = new DaycountApi();
+                api.setBasePath(host);
+                SingleLongValue response = api.actual365l(fromdate, todate);
+                return (long)response.value;
+            }
+            catch (Exception e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+
+        }
+
+        [ExcelFunction(
+             Name = "SP.DC.ACT365L.YF",
+             Description = "day count fraction using Act/365L method",
+             Category = "Spectrum Financial - Day Count",
+             IsVolatile = true)]
+        public static object dayCount360L(
+             [ExcelArgument(Description = "serial number of start date")] long fromdate,
+             [ExcelArgument(Description = "serial number of end date")] long todate)
+        {
+            try
+            {
+                DaycountApi api = new DaycountApi();
+                api.setBasePath(host);
+                SingleDoubleValue response = api.actual365lyf(fromdate, todate);
+                return (long)response.value;
+            }
+            catch (Exception e)
+            {
+                return ExcelError.ExcelErrorValue;
+            }
+
+        }
+
+
+
     }
 }
