@@ -69,7 +69,7 @@ namespace SpectrumXl
             Description = "day count fraction using Act/360 method",
             Category = "Spectrum Financial - Day Count",
             IsVolatile = true)]
-        public static object dayCount360(
+        public static object dayCount360YF(
              [ExcelArgument(Description = "serial number of start date")] long fromdate,
              [ExcelArgument(Description = "serial number of end date")] long todate)
         {
@@ -118,7 +118,7 @@ namespace SpectrumXl
             Description = "day count fraction using Act/365F method",
             Category = "Spectrum Financial - Day Count",
             IsVolatile = true)]
-        public static object dayCount360F(
+        public static object dayCount360FYF(
              [ExcelArgument(Description = "serial number of start date")] long fromdate,
              [ExcelArgument(Description = "serial number of end date")] long todate)
         {
@@ -166,7 +166,7 @@ namespace SpectrumXl
          Description = "day count fraction using Act/365NL method",
          Category = "Spectrum Financial - Day Count",
          IsVolatile = true)]
-        public static object dayCount360NL(
+        public static object dayCount360NLYF(
              [ExcelArgument(Description = "serial number of start date")] long fromdate,
              [ExcelArgument(Description = "serial number of end date")] long todate)
         {
@@ -213,7 +213,7 @@ namespace SpectrumXl
              Description = "day count fraction using Act/365L method",
              Category = "Spectrum Financial - Day Count",
              IsVolatile = true)]
-        public static object dayCount360L(
+        public static object dayCount360LYF(
              [ExcelArgument(Description = "serial number of start date")] long fromdate,
              [ExcelArgument(Description = "serial number of end date")] long todate)
         {
