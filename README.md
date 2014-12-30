@@ -6,6 +6,8 @@ that can be invoked from a Spreadsheet.
 
 Currently the Addin support the following functions:
 
+## Date Functions
+
 * SP.DATE.TODAY() - Returns today's serial number*
 * SP.DATE.TODAYSF() - Returns today's date in mm/dd/yyyy format
 * SP.DATE.WEEKDAY() - Returns current weekday: MONDAY, TUESDAY, etc.
@@ -32,6 +34,9 @@ Currently the Addin support the following functions:
 * SP.DATE.DECR() - returns the serial number of the previous date.
 * SP.DATE.INCRBY(2) - returns the serial number of the date after the serial number indicated.
 * SP.DATE.DECRBY(2) - returns the serial number of the date prior to the serial number indicated.
+
+## Day Count Functions
+
 * SP.DC.ACT360(42000,42001) - Day count using ACT360 method.
 * SP.DC.ACT360.YF(42000,42002) - Day count fraction using the ACT360 method.
 * SP.DC.ACT365F(42000, 42001) - Day count using the ACT365F method.
