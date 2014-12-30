@@ -15,7 +15,7 @@ Currently the Addin support the following functions:
 * SP.DATE.DAYOFYEAR() - Returns the current day of the year.
 * SP.DATE.DAYINLY() - Returns TRUE if the current year is a leap year, otherwise false.
 * SP.DATE.SN(12,27,2014) - Returns the serial number of the mm, dd, yyyy indicated.
-*SP.DATE.SN.SIMPLEFMT(B12) - Returns the mm/dd/yyyy formatted date of the serial number provided.
+* SP.DATE.SN.SIMPLEFMT(B12) - Returns the mm/dd/yyyy formatted date of the serial number provided.
 * SP.DATE.SN.WEEKDAY(B12) - Returns the weekday of the serial number provided.
 * SP.DATE.SN.YEAR(B12) - Returns the year of the serial number provided.
 * SP.DATE.SN.MONTH(B12) - Returns the month of the serial number provided.
