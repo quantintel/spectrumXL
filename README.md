@@ -2,7 +2,9 @@ spectrumXL
 ==========
 
 SpectrumXl is an Excel Addin which provides a set User Defined Functions (UDF's)
-that can be invoked from a Spreadsheet. 
+that can be invoked from a Spreadsheet. The UDF's implemented in the Addin invoke an external REST based web service where the actual logic associated with the function is implemented. Functionality is intentionally externalized so that multiple "front ends" can be built and all provide a consistent implementation of the underlying algorithms.
+
+New Functions are constantly being added so check back frequently. 
 
 Currently the Addin support the following functions:
 
