@@ -41,3 +41,4 @@ Currently the Addin support the following functions:
 * SP.DC.ACT365NL(42000, 42001) - Day count method using the ACT365NL method.
 * SP.DC.ACT365NL.YF(42000, 42001) - Day count fraction using the ACT365NL method
 
+* *serial date are an integer number of day that have passed since 1900-Jan-0
